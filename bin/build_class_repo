@@ -9,7 +9,7 @@ end
 class_repo   = ARGV.pop
 class_name   = class_repo.split("/").last.split('.').first
 initial_dir  = `pwd`
-template_dir = 'ex2'
+template_dir = 'ex3'
 
 # move to the parent directory
 if initial_dir.strip.split('/').last == template_dir
