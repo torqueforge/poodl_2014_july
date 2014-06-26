@@ -21,5 +21,5 @@ def instructions(source_file, test_file=default_test_file(source_file))
 end
 
 def default_test_file(source_file)
-  source_file.gsub(/\./, '_test.')
+  source_file.gsub(/\./, '_test.').gsub(/lib/, 'test')
 end
