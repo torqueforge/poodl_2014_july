@@ -5,8 +5,8 @@ class Bottles
   def verse(bottle_number)
     current_bottle_number = bottle_number
     next_bottle_number = next_bottle_number(current_bottle_number)
-     "#{bottles_left(current_bottle_number)} #{bottle(current_bottle_number)} of beer on the wall, #{bottles_left(current_bottle_number)} #{bottle(current_bottle_number)} of beer.\n".capitalize+
-     "#{next_move(current_bottle_number)}, #{bottles_left(next_bottle_number)} #{bottle(next_bottle_number)} of beer on the wall.\n"
+     "#{quantity(current_bottle_number)} #{container(current_bottle_number)} of beer on the wall, #{quantity(current_bottle_number)} #{container(current_bottle_number)} of beer.\n".capitalize+
+     "#{action(current_bottle_number)}, #{quantity(next_bottle_number)} #{container(next_bottle_number)} of beer on the wall.\n"
   end
 
   def verses(upper, lower)
@@ -17,7 +17,9 @@ class Bottles
     verses(99,0)
   end
 
-  def bottle(bottle_number)
+  private
+
+  def container(bottle_number)
     if bottle_number == 1 
       "bottle"
     else
@@ -33,7 +35,7 @@ class Bottles
     end
   end
 
-  def bottles_left(bottle_number)
+  def quantity(bottle_number)
     if bottle_number == 0 
       "no more"
     else
@@ -49,7 +51,7 @@ class Bottles
     end
   end
 
-  def next_move(bottle_number)
+  def action(bottle_number)
     if bottle_number == 0
       "Go to the store and buy some more"
     else
