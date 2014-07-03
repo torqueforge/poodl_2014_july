@@ -17,14 +17,29 @@ class Bottles
     verses(99,0)
   end
 
+  class BottleNumber
+
+    attr_reader :number
+    private :number
+
+    def initialize(number)
+      @number = number
+    end
+
+    def container
+      if number == 1 
+        "bottle"
+      else
+        "bottles"
+      end
+    end
+
+  end
+
   private
 
   def container(bottle_number)
-    if bottle_number == 1 
-      "bottle"
-    else
-      "bottles"
-    end
+    BottleNumber.new(bottle_number).container
   end
 
   def pronoun(bottle_number)
